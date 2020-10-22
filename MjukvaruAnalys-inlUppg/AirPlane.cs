@@ -10,7 +10,7 @@ namespace MjukvaruAnalys_inlUppg
 
         public int OccupiedSeats { get; set; }
 
-        public Array SeatNumbers { get; set; }
+        public int SeatNumber { get; set; }
 
 
 

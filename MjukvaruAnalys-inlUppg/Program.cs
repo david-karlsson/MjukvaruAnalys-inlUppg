@@ -21,10 +21,15 @@ namespace MjukvaruAnalys_inlUppg
                 Console.WriteLine("All seats are occupied.");
             }
 
-            var passengerBoarding = new Passenger(1,true);
 
+            var passengerBoarding = new Passenger(100,true);
+
+            passengerBoarding.BookTicket();
+            passengerBoarding.BuyTicket();
             passengerBoarding.Board();
+            
 
+            
 
         }
     }

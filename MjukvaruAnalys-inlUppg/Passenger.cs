@@ -26,7 +26,30 @@ namespace MjukvaruAnalys_inlUppg
         }
 
 
-        public void Board()
+        public void BookTicket() {
+
+            var planeSeats = new AirPlane(3, 1);
+
+            if (planeSeats.CheckSeatAvailabillity() == true)
+            {
+
+                var rdnseat = new Random();
+
+                Console.WriteLine("You have now booked a seat.Your seatnumber is " + rdnseat.Next(1,30));
+            }
+            else
+            {
+
+                Console.WriteLine("Booking denied.There are no seats available for this flight");
+            }
+
+
+            }
+
+
+
+
+            public void Board()
         {
 
             var planeSeats = new AirPlane(3,1); 
@@ -56,6 +79,24 @@ namespace MjukvaruAnalys_inlUppg
             }
         }
 
+    public void BuyTicket()
+        {
+
+            if(Money >= 100)
+            {
+
+                Console.WriteLine("You have succesfully bought a ticket");
+            }
+
+
+            else
+            {
+
+                Console.WriteLine("You do not have enough money to buy a ticket");
+            }
+        }
+    
+    
     }
 
 

@@ -22,14 +22,23 @@ namespace MjukvaruAnalys_inlUppg
             }
 
 
-            var passengerBoarding = new Passenger(100,true);
+       
 
+            var passengerBoarding = new Passenger(100);
+            var menu = new FoodCart();
             passengerBoarding.BookTicket();
             passengerBoarding.BuyTicket();
             passengerBoarding.Board();
-            
+            menu.Menu();
 
-            
+             Console.WriteLine("Would you like to order some food?");
+            string foodorder = Console.ReadLine();
+
+            if (foodorder == "yes")
+            {
+                passengerBoarding.OrderFood();
+            }
+
 
         }
     }

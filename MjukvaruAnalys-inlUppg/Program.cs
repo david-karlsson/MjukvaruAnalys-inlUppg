@@ -22,7 +22,7 @@ namespace MjukvaruAnalys_inlUppg
 
 
             if (seatcheck.CheckSeatAvailabillity()==true)
-            Console.WriteLine("There are seats avilable.");
+            Console.WriteLine("There are seats available for booking.");
 
             else
             {

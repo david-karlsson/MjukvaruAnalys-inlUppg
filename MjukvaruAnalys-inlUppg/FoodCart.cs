@@ -8,7 +8,18 @@ namespace MjukvaruAnalys_inlUppg
     {
       /*  public string FoodItem { get; set; }*/
 
-        public string Drink { get; set; }
+        public class DrinkItem 
+        { 
+        
+            public int DrinkId { get; set; } 
+            public string DrinkName { get; set; }
+
+            public bool IsAlcoholic { get; set; }
+        
+        }
+
+
+
 
 
          public class FoodItem
@@ -25,29 +36,29 @@ namespace MjukvaruAnalys_inlUppg
 
 
 
-        public List<FoodItem>Menu()
+        public List<FoodItem>FoodMenu()
         {
             Console.WriteLine("Would you like to see a Food-Menu?");
             string SeeMenu = Console.ReadLine();
 
-            if(SeeMenu == "yes")
+            if(SeeMenu.Contains("y"))
             {
 
-                List<FoodItem> menu = new List<FoodItem>();
+                List<FoodItem> foodMenu = new List<FoodItem>();
 
 
 
-                menu.Add(new FoodItem() { FoodName="Pasta Bolognese", FoodInStock="yes"});
-                menu.Add(new FoodItem() { FoodName = "Lasagna", FoodInStock = "No" });
-                menu.Add(new FoodItem() { FoodName = "Roasted Salmon with potato crumpets", FoodInStock = "yes" });
-                menu.Add(new FoodItem() { FoodName = "Fish-soup", FoodInStock = "No" });
-                foreach (FoodItem fooditem in menu)
+                foodMenu.Add(new FoodItem() { FoodName="Pasta Bolognese", FoodInStock="yes"});
+                foodMenu.Add(new FoodItem() { FoodName = "Lasagna", FoodInStock = "No" });
+                foodMenu.Add(new FoodItem() { FoodName = "Roasted Salmon with potato crumpets", FoodInStock = "yes" });
+                foodMenu.Add(new FoodItem() { FoodName = "Fish-soup", FoodInStock = "No" });
+                foreach (FoodItem fooditem in foodMenu)
                 {
                     Console.WriteLine("* " + fooditem.FoodName +" In stock? "+ fooditem.FoodInStock);
                 }
               
 
-                return menu;
+                return foodMenu;
             }
 
 
@@ -60,6 +71,49 @@ namespace MjukvaruAnalys_inlUppg
             }
 
         }
+
+
+
+        public List<DrinkItem> DrinkMenu()
+        {
+            Console.WriteLine("Would you like to see a Drink-Menu?");
+            string SeeMenu = Console.ReadLine();
+
+            if (SeeMenu.Contains("y"))
+            {
+
+
+                List<DrinkItem> drinkMenu = new List<DrinkItem>
+                {
+                    new DrinkItem() { DrinkName = "Lemonade", IsAlcoholic = false},
+                    new DrinkItem() { DrinkName = "Vodka Martini", IsAlcoholic = true},
+                    new DrinkItem() { DrinkName = "Coffee", IsAlcoholic = false},
+
+
+
+                };
+                foreach (DrinkItem drinkitem in drinkMenu)
+                {
+                    Console.WriteLine("* " + drinkitem.DrinkName + " Alcoholic? " + drinkitem.IsAlcoholic);
+                }
+
+
+                return drinkMenu;
+            }
+
+
+
+            else
+            {
+                List<DrinkItem> noMenu = new List<DrinkItem>();
+
+                return noMenu;
+            }
+
+        }
+
+
+
     }
 
 

@@ -37,6 +37,12 @@ namespace MjukvaruAnalys_inlUppg
         }
 
 
+
+
+
+
+
+
         public void BookTicket() {
 
             var planeSeats = new AirPlane(3, 1);
@@ -66,7 +72,7 @@ namespace MjukvaruAnalys_inlUppg
         {
             Console.WriteLine("Would you like to buy a ticket?");
             string BuyTicketInput = Console.ReadLine();
-            if ((Money >= 100) && (BuyTicketInput =="yes"))
+            if ((Money >= 100) && (BuyTicketInput.Contains("y")))
 
 
 
@@ -130,33 +136,159 @@ namespace MjukvaruAnalys_inlUppg
 
             Console.WriteLine("Take your pick(1-4): ");
             string selectedFood = Console.ReadLine();
-/*            var menu = new FoodCart.FoodItem();
-*/
-            List<FoodItem> menu = new List<FoodItem>();
-
-            menu.Add(new FoodItem() { FoodName = "Pasta Bolognese", FoodInStock = "yes" ,FoodId = "1" });
-            menu.Add(new FoodItem() { FoodName = "Lasagna", FoodInStock = "no" , FoodId = "2" });
-            menu.Add(new FoodItem() { FoodName = "Roasted Salmon with potato crumpets", FoodInStock = "yes", FoodId = "3" });
-            menu.Add(new FoodItem() { FoodName = "Fish-soup", FoodInStock = "no", FoodId = "4"});
+            /*            var menu = new FoodCart.FoodItem();
+            */
+            List<FoodItem> menu = new List<FoodItem>
+            {
+                new FoodItem() { FoodName = "Pasta Bolognese", FoodInStock = "yes", FoodId = "1" },
+                new FoodItem() { FoodName = "Lasagna", FoodInStock = "no", FoodId = "2" },
+                new FoodItem() { FoodName = "Roasted Salmon with potato crumpets", FoodInStock = "yes", FoodId = "3" },
+                new FoodItem() { FoodName = "Fish-soup", FoodInStock = "no", FoodId = "4" }
+            };
             foreach (FoodItem fooditem in menu)
             {
-
-                if(fooditem.FoodInStock == "yes") { 
-
-                    if (fooditem.FoodId == selectedFood)
-
-                    Console.WriteLine("You have selected:" + fooditem.FoodName);
-                }
-
-                else
+                if (fooditem.FoodId == selectedFood)
                 {
 
-                    Console.WriteLine("That item is out of stock");
+              
+                
+                            if (fooditem.FoodInStock == "yes") {
+
+                        Console.WriteLine("You have selected:" + fooditem.FoodName);
+
+
+                            }
+
+                            else if (fooditem.FoodInStock == "no")
+                            {
+
+                                Console.WriteLine("That item is out of stock");
+
+                                Console.ReadLine();
+                              
+
+                            }
+
+
+                 /*   else
+                    {
+                        Console.WriteLine("There is no such dish.");
+                        Console.ReadLine();
+
+                    }
+*/
+
                 }
+
+                 
+
             }
 
         }
 
+
+
+
+
+
+        public void OrderDrink()
+        {
+
+            Console.WriteLine("Take your pick(1-3): ");
+            string selectedDrink = Console.ReadLine();
+            /*            var menu = new FoodCart.FoodItem();
+            */
+
+            List<DrinkItem> drinkMenu = new List<DrinkItem>
+                {
+                    new DrinkItem() { DrinkName = "Lemonade", IsAlcoholic = false, DrinkId= 1},
+                    new DrinkItem() { DrinkName = "Vodka Martini", IsAlcoholic = true, DrinkId = 2},
+                    new DrinkItem() { DrinkName = "Coffee", IsAlcoholic = false, DrinkId = 3},
+
+
+
+                };
+            foreach (DrinkItem drinkitem in drinkMenu)
+            {
+
+
+
+                string Idstring = drinkitem.DrinkId.ToString();
+                if (Idstring == selectedDrink)
+                {
+
+
+
+                    if (drinkitem.IsAlcoholic == false)
+                    {
+
+                        Console.WriteLine("You have selected:" + drinkitem.DrinkName);
+
+
+                    }
+
+                    else if (drinkitem.IsAlcoholic == true)
+
+                        
+
+                    {
+                        if (AgeCheck().Age >= 18) { 
+
+                            Console.WriteLine("You have selected:" + drinkitem.DrinkName);
+
+                        Console.ReadLine();
+                        return;
+                         }
+
+
+                         else
+                         {
+                            Console.WriteLine("You need to be an adult in order to alcoholic drinks.");
+                            return;
+                         }
+
+
+                    }
+
+
+                   
+ 
+
+                }
+
+
+
+            }
+
+        }
+
+
+
+        public Passenger AgeCheck (){
+
+            Console.WriteLine("What is your age?");
+            string passangerAge = Console.ReadLine();
+            int num = int.Parse(passangerAge);
+            if (num >= 18)
+            {
+
+                var adult = new Adult
+                {
+                    Age = num
+                };
+
+                return adult;
+            }
+            else
+            {
+
+                var child = new Child();
+
+                child.Age = num;
+                return child;
+            }
+        
+        }
 
     }
 

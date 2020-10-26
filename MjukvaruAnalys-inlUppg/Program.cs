@@ -12,8 +12,16 @@ namespace MjukvaruAnalys_inlUppg
             var seatcheck = new AirPlane(30,15);
 
             Console.WriteLine("There is a total of "+ seatcheck.Seats+ " seats. " + seatcheck.OccupiedSeats+ " of them are occupied. " );
+            /*seatcheck.TakeOffCheck();*/
+            Console.ReadLine();
+            if           (  seatcheck.TakeOffCheck() == false)
+            {
+                return;
+              
+            }
 
-           if (seatcheck.CheckSeatAvailabillity()==true)
+
+            if (seatcheck.CheckSeatAvailabillity()==true)
             Console.WriteLine("There are seats avilable.");
 
             else
@@ -29,16 +37,25 @@ namespace MjukvaruAnalys_inlUppg
             passengerBoarding.BookTicket();
             passengerBoarding.BuyTicket();
             passengerBoarding.Board();
-            menu.Menu();
+            menu.FoodMenu();
+            menu.DrinkMenu();
 
              Console.WriteLine("Would you like to order some food?");
             string foodorder = Console.ReadLine();
 
-            if (foodorder == "yes")
+            if (foodorder.Contains("y"))
             {
                 passengerBoarding.OrderFood();
             }
+           
+            
+            Console.WriteLine("Would you like to order a drink?");
+            string drinkorder = Console.ReadLine();
 
+            if (drinkorder.Contains("y"))
+            {
+                passengerBoarding.OrderDrink();
+            }
 
         }
     }

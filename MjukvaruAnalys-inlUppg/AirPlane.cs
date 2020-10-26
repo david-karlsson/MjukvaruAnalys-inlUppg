@@ -41,7 +41,21 @@ namespace MjukvaruAnalys_inlUppg
         }
 
 
+        public bool TakeOffCheck()
+        {
+            if (OccupiedSeats < Seats/10)
+            {
+                Console.WriteLine("Not enough passangers for this flight to take off. Will not fly with less than 10% occupancy.");
+                return false;
+            }
 
+            else
+            {
+                return true;
+            }
+
+
+        }
 
 
 

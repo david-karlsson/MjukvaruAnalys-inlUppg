@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using static MjukvaruAnalys_inlUppg.FoodCart;
+using static MjukvaruAnalys_inlUppg.Staff;
 
 namespace MjukvaruAnalys_inlUppg
 {
@@ -223,6 +224,8 @@ namespace MjukvaruAnalys_inlUppg
                     {
 
                         Console.WriteLine("You have selected:" + drinkitem.DrinkName);
+                        var drinkServer = new Staff();
+                        drinkServer.ServeDrink();
 
 
                     }
@@ -235,8 +238,9 @@ namespace MjukvaruAnalys_inlUppg
                         if (AgeCheck().Age >= 18) { 
 
                             Console.WriteLine("You have selected:" + drinkitem.DrinkName);
-
-                        Console.ReadLine();
+                            var drinkServer = new Staff();
+                            drinkServer.ServeDrink();
+                            Console.ReadLine();
                         return;
                          }
 

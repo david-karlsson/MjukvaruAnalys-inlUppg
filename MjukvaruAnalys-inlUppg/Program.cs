@@ -51,10 +51,37 @@ namespace MjukvaruAnalys_inlUppg
             
             Console.WriteLine("Would you like to order a drink?");
             string drinkorder = Console.ReadLine();
+            var drinksOrdered = 0;
 
-            if (drinkorder.Contains("y"))
+            if (drinkorder.Contains("y") & drinksOrdered < 5)
             {
+                
+
                 passengerBoarding.OrderDrink();
+                drinksOrdered++;
+
+                passengerBoarding.OrderDrink();
+                drinksOrdered++;
+
+                passengerBoarding.OrderDrink();
+                drinksOrdered++;
+
+                passengerBoarding.OrderDrink();
+                drinksOrdered++;
+
+                passengerBoarding.OrderDrink();
+                drinksOrdered++;
+
+                passengerBoarding.OrderDrink();
+                drinksOrdered++;
+
+
+            }
+
+            else
+            {
+
+                
             }
 
         }

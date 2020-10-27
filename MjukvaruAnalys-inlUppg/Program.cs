@@ -50,40 +50,110 @@ namespace MjukvaruAnalys_inlUppg
            
             
             Console.WriteLine("Would you like to order a drink?");
-            string drinkorder = Console.ReadLine();
-            var drinksOrdered = 0;
+            string drinkOrder = Console.ReadLine();
+            var totalDrinksOrdered = 0;
 
-            if (drinkorder.Contains("y") & drinksOrdered < 5)
+            if (drinkOrder.Contains("y") )
             {
                 
 
                 passengerBoarding.OrderDrink();
-                drinksOrdered++;
+                totalDrinksOrdered++;
+                
+                if(totalDrinksOrdered < 5) { 
+                
+               
+                    
+                    
+                    Console.WriteLine("Would you like to order another drink?");
+                        string moreDrinksOrder = Console.ReadLine();
+                    if (moreDrinksOrder.Contains("y")){ 
+                    passengerBoarding.OrderDrink();
+                        totalDrinksOrdered++;
+                    }
+                        else
+                        {
+                            return;
+                        }
 
-                passengerBoarding.OrderDrink();
-                drinksOrdered++;
 
-                passengerBoarding.OrderDrink();
-                drinksOrdered++;
 
-                passengerBoarding.OrderDrink();
-                drinksOrdered++;
+                    Console.WriteLine("Would you like to order another drink?");
+                    string moreDrinksOrder2 = Console.ReadLine();
+                    if (moreDrinksOrder2.Contains("y"))
+                    {
+                        passengerBoarding.OrderDrink();
+                        totalDrinksOrdered++;
+                    }
+                    else
+                    {
+                        return;
+                    }
 
-                passengerBoarding.OrderDrink();
-                drinksOrdered++;
 
-                passengerBoarding.OrderDrink();
-                drinksOrdered++;
 
+
+                    Console.WriteLine("Would you like to order another drink?");
+                    string moreDrinksOrder3 = Console.ReadLine();
+                    if (moreDrinksOrder3.Contains("y"))
+                    {
+                        passengerBoarding.OrderDrink();
+                        totalDrinksOrdered++;
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+
+                    Console.WriteLine("Would you like to order another drink?");
+                    string moreDrinksOrder4 = Console.ReadLine();
+                    if (moreDrinksOrder4.Contains("y"))
+                    {
+                        passengerBoarding.OrderDrink();
+                        totalDrinksOrdered++;
+                    }
+                    else
+                    {
+                        return;
+                    }
+
+
+
+                    Console.WriteLine("Would you like to order another drink?");
+                    if (moreDrinksOrder4.Contains("y"))
+                    {
+                  
+                        totalDrinksOrdered++;
+                    }
+
+
+
+                }
+
+
+                else if (totalDrinksOrdered == 5)
+                {
+
+                    Console.WriteLine("You've had enough to drink. 5 drinks is enough. ");
+                    Console.ReadLine();
+                }
 
             }
 
-            else
+            else 
             {
 
-                
+                Console.WriteLine("You've had enough to drink. 5 drinks is enough. ");
+
             }
+
+
+            
+
 
         }
+
+
     }
 }

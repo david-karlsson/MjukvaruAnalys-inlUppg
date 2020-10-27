@@ -30,12 +30,12 @@ namespace MjukvaruAnalys_inlUppg
 
 
 
-        public Passenger(int money, bool hasTicket)
+ /*       public Passenger(int money, bool hasTicket)
         {
             Money = money;
             HasTicket = hasTicket;
 
-        }
+        }*/
 
 
 

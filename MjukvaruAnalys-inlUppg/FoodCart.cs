@@ -94,7 +94,22 @@ namespace MjukvaruAnalys_inlUppg
                 };
                 foreach (DrinkItem drinkitem in drinkMenu)
                 {
-                    Console.WriteLine("* " + drinkitem.DrinkName + " Alcoholic? " + drinkitem.IsAlcoholic);
+
+                    string alcoholicDisplay = "";
+
+                    if (drinkitem.IsAlcoholic== true)
+                    {
+                         alcoholicDisplay = "Yes"; 
+                    }
+
+                    else
+                    {
+                        alcoholicDisplay = "No";
+
+                    }
+
+
+                    Console.WriteLine("* " + drinkitem.DrinkName + " Alcoholic? " + alcoholicDisplay);
                 }
 
 

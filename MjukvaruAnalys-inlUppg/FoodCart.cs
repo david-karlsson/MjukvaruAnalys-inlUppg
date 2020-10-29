@@ -32,9 +32,24 @@ namespace MjukvaruAnalys_inlUppg
         }
 
 
+                public List<FoodItem> foodMenu = new List<FoodItem>
+                {
+                    new FoodItem() { FoodName = "Pasta Bolognese", FoodInStock = "yes", FoodId = "1" },
+                    new FoodItem() { FoodName = "Lasagna", FoodInStock = "no", FoodId = "2" },
+                    new FoodItem() { FoodName = "Roasted Salmon with potato crumpets", FoodInStock = "yes", FoodId = "3" },
+                    new FoodItem() { FoodName = "Fish-soup", FoodInStock = "no", FoodId = "4" }
+                };
+
+
+        public List<DrinkItem> drinkMenu = new List<DrinkItem>
+                {
+                    new DrinkItem() { DrinkName = "Lemonade", IsAlcoholic = false, DrinkId= 1},
+                    new DrinkItem() { DrinkName = "Vodka Martini", IsAlcoholic = true, DrinkId = 2},
+                    new DrinkItem() { DrinkName = "Coffee", IsAlcoholic = false, DrinkId = 3},
 
 
 
+                };
 
         public List<FoodItem>FoodMenu()
         {
@@ -44,14 +59,7 @@ namespace MjukvaruAnalys_inlUppg
             if(SeeMenu.Contains("y"))
             {
 
-                List<FoodItem> foodMenu = new List<FoodItem>();
-
-
-
-                foodMenu.Add(new FoodItem() { FoodName="Pasta Bolognese", FoodInStock="yes"});
-                foodMenu.Add(new FoodItem() { FoodName = "Lasagna", FoodInStock = "No" });
-                foodMenu.Add(new FoodItem() { FoodName = "Roasted Salmon with potato crumpets", FoodInStock = "yes" });
-                foodMenu.Add(new FoodItem() { FoodName = "Fish-soup", FoodInStock = "No" });
+              
                 foreach (FoodItem fooditem in foodMenu)
                 {
                     Console.WriteLine("* " + fooditem.FoodName +" In stock? "+ fooditem.FoodInStock);
@@ -83,15 +91,6 @@ namespace MjukvaruAnalys_inlUppg
             {
 
 
-                List<DrinkItem> drinkMenu = new List<DrinkItem>
-                {
-                    new DrinkItem() { DrinkName = "Lemonade", IsAlcoholic = false},
-                    new DrinkItem() { DrinkName = "Vodka Martini", IsAlcoholic = true},
-                    new DrinkItem() { DrinkName = "Coffee", IsAlcoholic = false},
-
-
-
-                };
                 foreach (DrinkItem drinkitem in drinkMenu)
                 {
 

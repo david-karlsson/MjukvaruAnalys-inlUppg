@@ -14,11 +14,7 @@ namespace MjukvaruAnalys_inlUppg
             Console.WriteLine("There is a total of "+ seatcheck.Seats+ " seats. " + seatcheck.OccupiedSeats+ " of them are occupied. " );
             /*seatcheck.TakeOffCheck();*/
             Console.ReadLine();
-            if           (  seatcheck.TakeOffCheck() == false)
-            {
-                return;
-              
-            }
+           
 
 
             if (seatcheck.CheckSeatAvailabillity()==true)
@@ -27,6 +23,8 @@ namespace MjukvaruAnalys_inlUppg
             else
             {
                 Console.WriteLine("All seats are occupied.");
+
+                return;
             }
 
 
@@ -37,6 +35,16 @@ namespace MjukvaruAnalys_inlUppg
             passengerBoarding.BookTicket();
             passengerBoarding.BuyTicket();
             passengerBoarding.Board();
+
+
+            if (seatcheck.TakeOffCheck() == false)
+            {
+                return;
+
+            }
+
+
+
             menu.FoodMenu();
             menu.DrinkMenu();
 

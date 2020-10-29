@@ -60,7 +60,7 @@ namespace MjukvaruAnalys_inlUppg
 
 
 
-                        public void ServeDrink()
+                        public void ServeFoodOrDrink()
                                         {
 
 

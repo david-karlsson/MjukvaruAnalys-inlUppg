@@ -18,6 +18,14 @@ namespace MjukvaruAnalys_inlUppg
 
         public bool HasTicket { get; set; }
 
+        public string SelectDrink { get; set; }
+
+        public Staff drinkServer = new Staff();
+
+      
+    
+
+
         public Passenger() { }
 
 
@@ -87,6 +95,8 @@ namespace MjukvaruAnalys_inlUppg
             {
 
                 Console.WriteLine("You do not have enough money to buy a ticket");
+
+                return;
             }
 
 
@@ -120,6 +130,7 @@ namespace MjukvaruAnalys_inlUppg
                 else
                 {
                     Console.WriteLine("You need a ticket to board");
+                    return;
                 }
 
             }
@@ -137,16 +148,12 @@ namespace MjukvaruAnalys_inlUppg
 
             Console.WriteLine("Take your pick(1-4): ");
             string selectedFood = Console.ReadLine();
-            /*            var menu = new FoodCart.FoodItem();
-            */
-            List<FoodItem> menu = new List<FoodItem>
-            {
-                new FoodItem() { FoodName = "Pasta Bolognese", FoodInStock = "yes", FoodId = "1" },
-                new FoodItem() { FoodName = "Lasagna", FoodInStock = "no", FoodId = "2" },
-                new FoodItem() { FoodName = "Roasted Salmon with potato crumpets", FoodInStock = "yes", FoodId = "3" },
-                new FoodItem() { FoodName = "Fish-soup", FoodInStock = "no", FoodId = "4" }
-            };
-            foreach (FoodItem fooditem in menu)
+            var menu = new FoodCart();
+         
+
+
+          
+            foreach (FoodItem fooditem in menu.foodMenu)
             {
                 if (fooditem.FoodId == selectedFood)
                 {
@@ -156,7 +163,7 @@ namespace MjukvaruAnalys_inlUppg
                             if (fooditem.FoodInStock == "yes") {
 
                         Console.WriteLine("You have selected:" + fooditem.FoodName);
-
+                        drinkServer.ServeFoodOrDrink();
 
                             }
 
@@ -197,19 +204,10 @@ namespace MjukvaruAnalys_inlUppg
 
             Console.WriteLine("Take your pick(1-3): ");
             string selectedDrink = Console.ReadLine();
-            /*            var menu = new FoodCart.FoodItem();
-            */
+            SelectDrink = selectedDrink;
+            var menu = new FoodCart();
 
-            List<DrinkItem> drinkMenu = new List<DrinkItem>
-                {
-                    new DrinkItem() { DrinkName = "Lemonade", IsAlcoholic = false, DrinkId= 1},
-                    new DrinkItem() { DrinkName = "Vodka Martini", IsAlcoholic = true, DrinkId = 2},
-                    new DrinkItem() { DrinkName = "Coffee", IsAlcoholic = false, DrinkId = 3},
-
-
-
-                };
-            foreach (DrinkItem drinkitem in drinkMenu)
+            foreach (DrinkItem drinkitem in menu.drinkMenu)
             {
 
 
@@ -223,9 +221,10 @@ namespace MjukvaruAnalys_inlUppg
                     if (drinkitem.IsAlcoholic == false)
                     {
 
+
+
                         Console.WriteLine("You have selected:" + drinkitem.DrinkName);
-                        var drinkServer = new Staff();
-                        drinkServer.ServeDrink();
+                        drinkServer.ServeFoodOrDrink();
 
 
                     }
@@ -235,13 +234,18 @@ namespace MjukvaruAnalys_inlUppg
                         
 
                     {
-                        if (AgeCheck().Age >= 18) { 
+                        if (AgeCheck().Age >= 18) {
 
-                            Console.WriteLine("You have selected:" + drinkitem.DrinkName);
-                            var drinkServer = new Staff();
-                            drinkServer.ServeDrink();
-                            Console.ReadLine();
-                        return;
+                             Console.WriteLine("You have selected:" + drinkitem.DrinkName);
+                            /*
+                             drinkServer.ServeDrink();
+                             Console.ReadLine();
+
+ */
+
+                            var adult = new Adult();
+                            adult.OrderAlcoholicDrink();
+                            return;
                          }
 
 

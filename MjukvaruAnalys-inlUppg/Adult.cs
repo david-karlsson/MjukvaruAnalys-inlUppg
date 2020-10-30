@@ -19,13 +19,14 @@ namespace MjukvaruAnalys_inlUppg
 
         public void OrderAlcoholicDrink()
         {
-           /* foreach (DrinkItem drinkitem in drinkMenu)
-            {
-                string Idstring = drinkitem.DrinkId.ToString();
-                if (Idstring == SelectDrink)
-                {
-                    Console.WriteLine("You have selected:" + drinkitem.DrinkName);
-*/
+            /* foreach (DrinkItem drinkitem in drinkMenu)
+             {
+                 string Idstring = drinkitem.DrinkId.ToString();
+                 if (Idstring == SelectDrink)
+                 {
+                     Console.WriteLine("You have selected:" + drinkitem.DrinkName);
+ */
+                    var drinkServer = new Staff();
                     drinkServer.ServeFoodOrDrink();
                     Console.ReadLine();
            /*     }

@@ -18,12 +18,8 @@ namespace MjukvaruAnalys_inlUppg
 
         public bool HasTicket { get; set; }
 
-        public string SelectDrink { get; set; }
-
-        public Staff drinkServer = new Staff();
-
-      
-    
+     
+        public AirPlane planeSeats = new AirPlane(40, 4);
 
 
         public Passenger() { }
@@ -54,14 +50,14 @@ namespace MjukvaruAnalys_inlUppg
 
         public void BookTicket() {
 
-            var planeSeats = new AirPlane(3, 1);
+         
 
             if (planeSeats.CheckSeatAvailabillity() == true)
             {
 
                 var rdnseat = new Random();
 
-                Console.WriteLine("You have now booked a seat.Your seatnumber is " + rdnseat.Next(1,30));
+                Console.WriteLine("You have now booked a seat. Your seatnumber is " + rdnseat.Next(1,30));
             }
             else
             {
@@ -113,7 +109,7 @@ namespace MjukvaruAnalys_inlUppg
         public void Board()
         {
 
-            var planeSeats = new AirPlane(3, 1);
+            
 
 
             if (planeSeats.CheckSeatAvailabillity() == true)
@@ -141,133 +137,6 @@ namespace MjukvaruAnalys_inlUppg
                 Console.WriteLine("Boarding not permitted due to overbooking.");
 
             }
-        }
-
-
-        public void OrderFood() {
-
-            Console.WriteLine("Take your pick(1-4): ");
-            string selectedFood = Console.ReadLine();
-            var menu = new FoodCart();
-         
-
-
-          
-            foreach (FoodItem fooditem in menu.foodMenu)
-            {
-                if (fooditem.FoodId == selectedFood)
-                {
-
-              
-                
-                            if (fooditem.FoodInStock == "yes") {
-
-                        Console.WriteLine("You have selected:" + fooditem.FoodName);
-                        drinkServer.ServeFoodOrDrink();
-
-                            }
-
-                            else if (fooditem.FoodInStock == "no")
-                            {
-
-                                Console.WriteLine("That item is out of stock");
-
-                                Console.ReadLine();
-                              
-
-                            }
-
-
-                 /*   else
-                    {
-                        Console.WriteLine("There is no such dish.");
-                        Console.ReadLine();
-
-                    }
-*/
-
-                }
-
-                 
-
-            }
-
-        }
-
-
-
-
-
-
-        public void OrderDrink()
-        {
-
-            Console.WriteLine("Take your pick(1-3): ");
-            string selectedDrink = Console.ReadLine();
-            SelectDrink = selectedDrink;
-            var menu = new FoodCart();
-
-            foreach (DrinkItem drinkitem in menu.drinkMenu)
-            {
-
-
-
-                string Idstring = drinkitem.DrinkId.ToString();
-                if (Idstring == selectedDrink)
-                {
-
-
-
-                    if (drinkitem.IsAlcoholic == false)
-                    {
-
-
-
-                        Console.WriteLine("You have selected:" + drinkitem.DrinkName);
-                        drinkServer.ServeFoodOrDrink();
-
-
-                    }
-
-                    else if (drinkitem.IsAlcoholic == true)
-
-                        
-
-                    {
-                        if (AgeCheck().Age >= 18) {
-
-                             Console.WriteLine("You have selected:" + drinkitem.DrinkName);
-                            /*
-                             drinkServer.ServeDrink();
-                             Console.ReadLine();
-
- */
-
-                            var adult = new Adult();
-                            adult.OrderAlcoholicDrink();
-                            return;
-                         }
-
-
-                         else
-                         {
-                            Console.WriteLine("You need to be an adult in order to alcoholic drinks.");
-                            return;
-                         }
-
-
-                    }
-
-
-                   
- 
-
-                }
-
-
-
-            }
-
         }
 
 

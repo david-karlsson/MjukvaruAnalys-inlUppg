@@ -45,6 +45,16 @@ namespace MjukvaruAnalys_inlUppg
                 };
 
 
+        public List<FoodItem> childrensMenu = new List<FoodItem>
+                {
+                    new FoodItem() { FoodName = "Pasta Bolognese(Tiny portion)", FoodInStock = "yes", FoodId = "1" },
+                    new FoodItem() { FoodName = "Lasagna(Tiny portion)", FoodInStock = "yes", FoodId = "2" },
+                    new FoodItem() { FoodName = "Pancakes with strawberry jam", FoodInStock = "no", FoodId = "3" },
+                    new FoodItem() { FoodName = "Meatballs(Tiny portion)", FoodInStock = "yes", FoodId = "4" }
+                };
+
+
+
         public List<DrinkItem> drinkMenu = new List<DrinkItem>
                 {
                     new DrinkItem() { DrinkName = "Lemonade", IsAlcoholic = false, DrinkId= 1},
@@ -83,6 +93,15 @@ namespace MjukvaruAnalys_inlUppg
             }
 
         }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -187,6 +206,13 @@ namespace MjukvaruAnalys_inlUppg
 
 
 
+
+
+
+
+
+
+      
 
 
         public void OrderDrink()

@@ -43,20 +43,44 @@ namespace MjukvaruAnalys_inlUppg
 
             }
 
-
+            var childOrderingFood = new Child();
 
             menu.FoodMenu();
-            menu.DrinkMenu();
+            childOrderingFood.ChildrensMenu();
 
              Console.WriteLine("Would you like to order some food?");
             string foodorder = Console.ReadLine();
 
             if (foodorder.Contains("y"))
             {
-                menu.OrderFood();
+
+                Console.WriteLine("Would you like somtething from the childrens' menu?");
+                string childdrensMenuOrder = Console.ReadLine();
+
+
+                if (childdrensMenuOrder.Contains("y"))
+                {
+
+                 
+
+                    childOrderingFood.OrderChildrensMenuFood();
+
+                }
+
+
+
+
+
+                else { menu.OrderFood(); }
+
+
+
+
+                
             }
-           
-            
+
+            menu.DrinkMenu();
+
             Console.WriteLine("Would you like to order a drink?");
             string drinkOrder = Console.ReadLine();
             var totalDrinksOrdered = 0;
@@ -149,13 +173,7 @@ namespace MjukvaruAnalys_inlUppg
 
             }
 
-            else 
-            {
-
-                Console.WriteLine("You've had enough to drink. 5 drinks is enough. ");
-
-            }
-
+           
 
             
 

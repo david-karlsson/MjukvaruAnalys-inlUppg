@@ -8,11 +8,44 @@ namespace MjukvaruAnalys_inlUppg
     class Adult:Passenger
     {
 
+        FoodCart AdultCart = new FoodCart();
 
 
 
 
+        public List<DrinkItem> AlcoholicDrinkMenu()
+        {
+          
 
+                foreach (DrinkItem drinkitem in AdultCart.alcoholicDrinkMenu)
+                {
+
+                    string alcoholicDisplay = "";
+
+                    if (drinkitem.IsAlcoholic == true)
+                    {
+                        alcoholicDisplay = "Yes";
+                    }
+
+                    else
+                    {
+                        alcoholicDisplay = "No";
+
+                    }
+
+
+                    Console.WriteLine("* " + drinkitem.DrinkName + " Alcoholic? " + alcoholicDisplay);
+                }
+
+
+                return AdultCart.alcoholicDrinkMenu;
+           
+
+
+
+          
+
+        }
 
 
 

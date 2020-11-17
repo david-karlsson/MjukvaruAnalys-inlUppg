@@ -9,7 +9,7 @@ namespace MjukvaruAnalys_inlUppg
 {
     class Passenger
     {
-        public int PassangerID { get; set; }
+        public int PassangerId { get; set; }
         public string Name { get; set; }
 
         public int Age {get;set;}
@@ -50,19 +50,30 @@ namespace MjukvaruAnalys_inlUppg
 
         public void BookTicket() {
 
-         
+            Console.WriteLine("Would you like to book a seat in advance?");
+            var seatbooking=Console.ReadLine();
 
-            if (planeSeats.CheckSeatAvailabillity() == true)
+            if (planeSeats.CheckSeatAvailabillity() == true & seatbooking.Contains("y"))
             {
 
                 var rdnseat = new Random();
 
                 Console.WriteLine("You have now booked a seat. Your seatnumber is " + rdnseat.Next(1,30));
             }
-            else
+            
+            
+            else if (planeSeats.CheckSeatAvailabillity() == false)
             {
 
                 Console.WriteLine("Booking denied.There are no seats available for this flight");
+            }
+
+
+            else 
+            {
+
+                Console.WriteLine("Proceeding without booking a seat.");
+                return;
             }
 
 
@@ -106,7 +117,7 @@ namespace MjukvaruAnalys_inlUppg
 
 
 
-        public void Board()
+        public bool Board()
         {
 
             
@@ -120,13 +131,14 @@ namespace MjukvaruAnalys_inlUppg
                 {
 
                     Console.WriteLine("Boarding is permitted");
+                    return true;
                 }
 
 
                 else
                 {
                     Console.WriteLine("You need a ticket to board");
-                    return;
+                    return false;
                 }
 
             }
@@ -135,6 +147,7 @@ namespace MjukvaruAnalys_inlUppg
             else
             {
                 Console.WriteLine("Boarding not permitted due to overbooking.");
+                return false;
 
             }
         }

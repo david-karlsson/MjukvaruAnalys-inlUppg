@@ -8,7 +8,7 @@ namespace MjukvaruAnalys_inlUppg
     class Adult:Passenger
     {
 
-        FoodCart AdultCart = new FoodCart();
+        private readonly FoodCart AdultCart = new FoodCart();
 
 
 

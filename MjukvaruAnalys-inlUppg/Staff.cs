@@ -12,60 +12,60 @@ namespace MjukvaruAnalys_inlUppg
 
         public string Role { get; set; }
 
-            
-            
-                     public string GetRandomStaffMember()
-                        {
 
 
-                    Random rndName = new Random();
+        public string RandomStaffMember
+        {
+            get
+            {
 
 
-                    string[] personellNames = new string[3];
-                    personellNames[0] = "Jimmy";
-                    personellNames[1] = "Timmy";
-                    personellNames[2] = "Ursula";
+                Random rndName = new Random();
 
 
-
-                    var name = personellNames[rndName.Next(0, 3)];
-
-                           Name = name;
-
-
-                                     return name;
-    
-                     }
-
-
-                  public string GetRandomStaffRole()
-                            {
-                                Random rndRole = new Random();
-
-
-                                string[] personellRoles = new string[3];
-                                personellRoles[0] = "Captain";
-                                personellRoles[1] = "Steward";
-                                personellRoles[2] = "Chef";
+                string[] personellNames = new string[4];
+                personellNames[0] = "Jimmy";
+                personellNames[1] = "Timmy";
+                personellNames[2] = "Ursula";
+                personellNames[3] = "Bob";
 
 
 
-                                var role = personellRoles[rndRole.Next(0, 3)];
-                                    return role;
+                var name = personellNames[rndName.Next(0, 4)];
 
-                            }
+                Name = name;
+
+                return name;
+
+            }
+        }
+
+        public string RandomStaffRole
+        {
+            get
+            {
+                Random rndRole = new Random();
+
+
+                string[] personellRoles = new string[3];
+                personellRoles[0] = "Captain";
+                personellRoles[1] = "Steward";
+                personellRoles[2] = "Chef";
 
 
 
+                var role = personellRoles[rndRole.Next(0, 3)];
+                return role;
 
+            }
+        }
 
-
-                        public void ServeFoodOrDrink()
+        public void ServeFoodOrDrink()
                                         {
 
 
 
-                            Console.WriteLine("Serving you today will be: " + GetRandomStaffRole()+" " + GetRandomStaffMember()) ;
+                            Console.WriteLine("Serving you today will be: " + RandomStaffRole+" " + RandomStaffMember) ;
    
 
 

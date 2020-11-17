@@ -7,7 +7,7 @@ namespace MjukvaruAnalys_inlUppg
 {
     class Child:Passenger
     {
-        public FoodCart ChildrensCart  = new FoodCart();
+        private readonly FoodCart ChildrensCart  = new FoodCart();
 
 
 
@@ -24,7 +24,7 @@ namespace MjukvaruAnalys_inlUppg
 
                 foreach (FoodCart.FoodItem fooditem in ChildrensCart.childrensMenu)
                 {
-                    Console.WriteLine("* " + fooditem.FoodName + " In stock? " + fooditem.FoodInStock);
+                    Console.WriteLine("* " + fooditem.FoodName + "||  In stock? " + fooditem.FoodInStock);
                 }
 
 
@@ -87,19 +87,19 @@ namespace MjukvaruAnalys_inlUppg
                     }
 
 
-                    /*   else
-                       {
-                           Console.WriteLine("There is no such dish.");
-                           Console.ReadLine();
+                      /*  else
+                        {
+                            Console.WriteLine("There is no such dish.");
+                            Console.ReadLine();
+                            return;
+                        }*/
 
-                       }
-   */
+
+                    }
+
+
 
                 }
-
-
-
-            }
 
 
 
